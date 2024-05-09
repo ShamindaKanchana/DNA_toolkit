@@ -14,3 +14,4 @@ randDNAstr=''.join([random.choice(Nucleotides)
                     for nuc in range(100)])
 
 print(validateseq(randDNAstr))
+print(countNucFrequency(randDNAstr))
