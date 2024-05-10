@@ -33,3 +33,50 @@ def DNA_acr(seq):
 def gc_content(seq):
     '''GC content in a DNA/RNA sequence'''
     return round((seq.count('C')+seq.count('G'))/len(seq)*100)    
+
+
+
+def encode_to_dna(binary_string):
+    # Ensure the length of the binary string is divisible by 2
+    if len(binary_string) % 2 != 0:
+        raise ValueError("Binary string length must be divisible by 2")
+
+    dna_sequence = ""
+    # Iterate over the binary string in chunks of 2
+    for i in range(0, len(binary_string), 2):
+        chunk = binary_string[i:i+2]
+        # Convert the chunk to its corresponding DNA base
+        dna_base = ''
+        if chunk == '00':
+            dna_base = 'A'
+        elif chunk == '01':
+            dna_base = 'G'
+        elif chunk == '10':
+            dna_base = 'T'
+        elif chunk == '11':
+            dna_base = 'C'
+        dna_sequence += dna_base
+
+    # Handle the last bit
+    if len(binary_string) % 2 != 0:
+        last_bit = int(binary_string[-1])
+        if last_bit == 0:
+            dna_sequence += 'A'
+        else:
+            dna_sequence += 'T'
+
+    return dna_sequence
+
+def decode_to_binary(dna_sequence, dna_encode):
+    binary_string = ""
+    # Iterate over the DNA sequence
+    for base in dna_sequence:
+        # Convert the DNA base to its corresponding binary chunk
+        binary_chunk = dna_encode[base]
+        binary_string += binary_chunk
+
+    return binary_string
+
+
+
+
