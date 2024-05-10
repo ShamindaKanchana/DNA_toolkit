@@ -1,6 +1,6 @@
-Nucleotides=["A","C","G","T"]
-DNA_reverse_Comp={"A":"G","G":"A","C":"T","T":"C"}
-#check the sequence to make sure it is a DNA string 
+import collections
+from structures import*
+
 def validateseq(dna_seq):
     tmpseq=dna_seq.upper()
     for nuc  in tmpseq:
@@ -15,14 +15,21 @@ def countNucFrequency(seq):
     return tmpFreqDict    
 
 def transcription(seq):
-    #DNA to RNA 
+    ''''DNA -> RNA Transcription replacing Thymine with Uracil'''
     return seq.replace("T","U")
 
 def reverse_complement(seq):
+    '''Swapping adenine with thymine and guanine with cytosine and reversing newly generated string'''
     return ''.join([DNA_reverse_Comp[nuc] for nuc in seq])[::-1]
 
 def DNA_acr(seq):
+
+
     reverse=reverse_complement(seq)
     print("\n\n"+seq)
     print(''.join(['|' for c in range (len(seq))]))
     print(reverse)
+
+def gc_content(seq):
+    '''GC content in a DNA/RNA sequence'''
+    return round((seq.count('C')+seq.count('G'))/len(seq)*100)    
