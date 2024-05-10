@@ -20,3 +20,9 @@ def transcription(seq):
 
 def reverse_complement(seq):
     return ''.join([DNA_reverse_Comp[nuc] for nuc in seq])[::-1]
+
+def DNA_acr(seq):
+    reverse=reverse_complement(seq)
+    print("\n\n"+seq)
+    print(''.join(['|' for c in range (len(seq))]))
+    print(reverse)
