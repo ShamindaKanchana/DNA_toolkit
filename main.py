@@ -17,7 +17,7 @@ randDNAstr=''.join([random.choice(Nucleotides)
                     for nuc in range(2000)])
 
 randomBinary=''.join([random.choice(Binary)
-                      for B in range(2000)])
+                      for B in range(20000)])
 '''
 #To print random sequence after validating
 print("--------------------Validated sequence is ----------------------------------------")
@@ -44,6 +44,9 @@ DNA_acr(randDNAstr)
 
 
 '''
+text = "Hello"
+binary_string = text_to_binary(text)
+
 
 # Encode binary string to DNA sequence
 binary_string=randomBinary
@@ -53,4 +56,13 @@ print("\n........................Encoded DNA sequence...........................
 
 # Decode DNA sequence to binary string
 decoded_binary_string = decode_to_binary(encode_to_dna(binary_string), DNA_encode)
-print("Decoded binary string......................................................\n", decoded_binary_string)
+print("..............................Decoded binary string...............................\n", decoded_binary_string)
+
+
+
+''''To convert string to binary '''
+
+
+# Example usage
+
+
