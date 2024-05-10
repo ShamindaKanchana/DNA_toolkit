@@ -1,6 +1,8 @@
 import collections
 from structures import*
 
+import binascii
+
 def validateseq(dna_seq):
     tmpseq=dna_seq.upper()
     for nuc  in tmpseq:
@@ -79,4 +81,11 @@ def decode_to_binary(dna_sequence, dna_encode):
 
 
 
+
+def text_to_binary(text):
+    # Convert the text to bytes using UTF-8 encoding
+    byte_string = text.encode('utf-8')
+    # Convert the byte string to binary representation
+    binary_string = bin(int.from_bytes(byte_string, 'big'))[2:]
+    return binary_string
 
