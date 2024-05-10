@@ -13,3 +13,7 @@ def countNucFrequency(seq):
     for nuc in seq:
         tmpFreqDict[nuc]+=1
     return tmpFreqDict    
+
+def transcription(seq):
+    #DNA to RNA 
+    return seq.replace("T","U")
