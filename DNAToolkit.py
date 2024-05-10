@@ -1,5 +1,5 @@
 Nucleotides=["A","C","G","T"]
-
+DNA_reverse_Comp={"A":"G","G":"A","C":"T","T":"C"}
 #check the sequence to make sure it is a DNA string 
 def validateseq(dna_seq):
     tmpseq=dna_seq.upper()
@@ -17,3 +17,6 @@ def countNucFrequency(seq):
 def transcription(seq):
     #DNA to RNA 
     return seq.replace("T","U")
+
+def reverse_complement(seq):
+    return ''.join([DNA_reverse_Comp[nuc] for nuc in seq])[::-1]
